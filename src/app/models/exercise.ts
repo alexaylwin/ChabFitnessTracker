@@ -15,3 +15,9 @@ export const EXERCISE_LIST: Array<Exercise> = [
   { type: 'Walking', id: 2, unit: UNITS.m },
   { type: 'Sit up' , id: 3, unit: UNITS.rep }
 ]
+
+export interface ExerciseRecord {
+  count: number;
+  type: string;
+  points: number;
+}

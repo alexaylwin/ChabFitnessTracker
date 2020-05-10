@@ -1,7 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Exercise, EXERCISE_LIST } from '../models/exercise';
+import { Exercise, EXERCISE_LIST, ExerciseRecord } from '../models/exercise';
 import { FormBuilder, FormArray, FormControl } from '@angular/forms';
 import { MatTable } from '@angular/material/table';
+import { debounce, debounceTime } from 'rxjs/operators';
 
 @Component({
   selector: 'app-add-workout',
@@ -34,6 +35,17 @@ export class AddWorkoutComponent implements OnInit {
   constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
+    this.exercisesForm.valueChanges.pipe(
+      debounceTime(350)
+    ).subscribe( (form) => {
+      const newForm: Array<ExerciseRecord> = new Array<ExerciseRecord>();
+      form.exerciseEntries.forEach( (record: ExerciseRecord) => {
+        // TODO: Use actual calculation
+        record.points = record.count * 100;
+        newForm.push(record);
+      });
+      this.exercisesForm.setValue({exerciseEntries: newForm}, { emitEvent: false});
+    });
   }
 
   onAddExercise() {
