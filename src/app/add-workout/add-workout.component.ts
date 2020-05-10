@@ -11,8 +11,8 @@ import { debounce, debounceTime } from 'rxjs/operators';
 })
 export class AddWorkoutComponent implements OnInit {
 
-  today: Date = new Date();
-  pointTotal: number = 99;
+  today: string = '';
+  totalPoints: number = 99;
   exerciseList: Array<Exercise> = EXERCISE_LIST;
 
   @ViewChild(MatTable)
@@ -35,16 +35,23 @@ export class AddWorkoutComponent implements OnInit {
   constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
+    const day = new Date();
+    this.today = day.toLocaleString('default', { month: 'long' }) + ' ' + day.getDate().toString();
+
     this.exercisesForm.valueChanges.pipe(
       debounceTime(350)
     ).subscribe( (form) => {
+      // TODO: we update every row when any value changes - could we make this smarter?
       const newForm: Array<ExerciseRecord> = new Array<ExerciseRecord>();
+      let newPoints = 0;
       form.exerciseEntries.forEach( (record: ExerciseRecord) => {
         // TODO: Use actual calculation
         record.points = record.count * 100;
+        newPoints = newPoints + record.points;
         newForm.push(record);
       });
       this.exercisesForm.setValue({exerciseEntries: newForm}, { emitEvent: false});
+      this.totalPoints = newPoints;
     });
   }
 
