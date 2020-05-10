@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, HostListener } from '@angular/core';
 import { Exercise, EXERCISE_LIST, ExerciseRecord } from '../models/exercise';
 import { FormBuilder, FormArray, FormControl } from '@angular/forms';
 import { MatTable } from '@angular/material/table';
@@ -55,6 +55,7 @@ export class AddWorkoutComponent implements OnInit {
     });
   }
 
+  @HostListener('document:keydown.a')
   onAddExercise() {
     this.exerciseEntries.push(this.fb.group(this.exerciseEntryControls));
     this.tableInstance.renderRows();
