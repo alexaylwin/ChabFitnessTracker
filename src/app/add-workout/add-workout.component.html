@@ -4,15 +4,29 @@
   <form [formGroup]="exercisesForm">
     <ng-container formArrayName="exerciseEntries">
       <mat-table #tableInstance [dataSource]="exerciseEntries.controls">
+
         <ng-container matColumnDef="type">
           <mat-header-cell *matHeaderCellDef>Type</mat-header-cell>
+
           <mat-cell *matCellDef="let element" [formGroup]="element">
+
             <mat-form-field floatLabel="never">
               <mat-label>Type</mat-label>
-              <input matInput type="text" formControlName="type">
+              <input matInput 
+              type="text" 
+              formControlName="type"
+              [matAutocomplete]="typeAuto">
+              <mat-autocomplete #typeAuto="matAutocomplete">
+                <mat-option *ngFor="let exercise of exerciseList" [value]="exercise.type">
+                  <span>{{exercise.type}}</span>
+                </mat-option>
+              </mat-autocomplete>
             </mat-form-field>
+
           </mat-cell>
+
         </ng-container>
+
         <ng-container matColumnDef="count">
           <mat-header-cell *matHeaderCellDef>Count</mat-header-cell>
           <mat-cell *matCellDef="let element" [formGroup]="element">
@@ -22,6 +36,7 @@
             </mat-form-field>
           </mat-cell>
         </ng-container>
+
         <ng-container matColumnDef="points">
           <mat-header-cell *matHeaderCellDef>Points</mat-header-cell>
           <mat-cell *matCellDef="let element" [formGroup]="element">
@@ -31,6 +46,7 @@
             </mat-form-field>
           </mat-cell>
         </ng-container>
+
         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
         <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
       </mat-table>
