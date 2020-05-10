@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Exercise, EXERCISE_LIST } from '../models/exercise';
-import { FormBuilder, FormArray } from '@angular/forms';
+import { FormBuilder, FormArray, FormControl } from '@angular/forms';
+import { MatTable } from '@angular/material/table';
 
 @Component({
   selector: 'app-add-workout',
@@ -12,6 +13,9 @@ export class AddWorkoutComponent implements OnInit {
   today: Date = new Date();
   pointTotal: number = 99;
   exerciseList: Array<Exercise> = EXERCISE_LIST;
+
+  @ViewChild(MatTable)
+  tableInstance: MatTable<FormControl>;
 
   displayedColumns = ['type', 'count', 'points'];
 
@@ -30,7 +34,14 @@ export class AddWorkoutComponent implements OnInit {
   constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
+  }
+
+  onAddExercise() {
     this.exerciseEntries.push(this.fb.group(this.exerciseEntryControls));
+    this.tableInstance.renderRows();
+  }
+
+  onSaveWorkout() {
     console.log(this.exercisesForm);
   }
 
