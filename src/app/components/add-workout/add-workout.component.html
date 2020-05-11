@@ -54,21 +54,21 @@
         </ng-container>
 
         <ng-container matColumnDef="points">
-          <mat-header-cell *matHeaderCellDef>Points</mat-header-cell>
-          <mat-cell *matCellDef="let element" [formGroup]="element">
+          <mat-header-cell *matHeaderCellDef class="numeric-column">Points</mat-header-cell>
+          <mat-cell *matCellDef="let element" [formGroup]="element" class="numeric-column">
             <mat-form-field>
               <input matInput type="number" formControlName="points" readonly>
             </mat-form-field>
           </mat-cell>
-          <mat-footer-cell *matFooterCellDef> <span class="font-bold">{{totalPoints}}</span></mat-footer-cell>
+          <mat-footer-cell *matFooterCellDef class="numeric-column"> <span class="font-bold">{{totalPoints}}</span></mat-footer-cell>
         </ng-container>
 
         <ng-container matColumnDef="remove">
-          <mat-header-cell *matHeaderCellDef></mat-header-cell>
-          <mat-cell *matCellDef="let element" [formGroup]="element">
+          <mat-header-cell *matHeaderCellDef class="button-column"></mat-header-cell>
+          <mat-cell *matCellDef="let element" [formGroup]="element" class="button-column">
             <button mat-icon-button color="warn" (click)="onRemoveRow(element)"><i class="material-icons">close</i></button>
           </mat-cell>
-          <mat-footer-cell *matFooterCellDef></mat-footer-cell>
+          <mat-footer-cell *matFooterCellDef class="button-column"></mat-footer-cell>
         </ng-container>
 
         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>

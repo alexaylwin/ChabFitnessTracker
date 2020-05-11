@@ -17,6 +17,14 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   font-weight: 500;
 }
 
+.button-column {
+  max-width: 24px;
+}
+
+.numeric-column {
+  max-width: 80px;
+}
+
 #addExercise {
   margin-top: 4px;
   margin-left: 8px;
