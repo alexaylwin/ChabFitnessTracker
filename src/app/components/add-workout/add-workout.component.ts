@@ -1,9 +1,9 @@
 import { Component, OnInit, ViewChild, HostListener } from '@angular/core';
-import { Exercise, EXERCISE_LIST, ExerciseRecord, GetExerciseByType, CalculateExercisePoints } from '../models/exercise';
+import { Exercise, EXERCISE_LIST, ExerciseRecord, GetExerciseByType, CalculateExercisePoints } from '../../models/exercise';
 import { FormBuilder, FormArray, FormControl } from '@angular/forms';
 import { MatTable } from '@angular/material/table';
 import { debounce, debounceTime } from 'rxjs/operators';
-import { FeatureToggleService } from '../services/feature-toggle.service';
+import { FeatureToggleService } from '../../services/feature-toggle.service';
 
 @Component({
   selector: 'app-add-workout',
