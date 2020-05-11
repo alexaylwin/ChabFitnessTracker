@@ -19,7 +19,7 @@ export class AddWorkoutComponent implements OnInit {
   @ViewChild(MatTable)
   tableInstance: MatTable<FormControl>;
 
-  displayedColumns = ['type', 'count', 'points'];
+  displayedColumns = ['type', 'count', 'points', 'remove'];
 
   private exerciseEntryControls = {
     type: [''],
@@ -62,7 +62,12 @@ export class AddWorkoutComponent implements OnInit {
   }
 
   onSaveWorkout() {
-    console.log(this.exercisesForm);
+  }
+
+  onRemoveRow(element: any) {
+    console.log(element);
+    this.exerciseEntries.removeAt(this.exerciseEntries.controls.findIndex( (v) => v === element ));
+    this.tableInstance.renderRows();
   }
 
   get exerciseEntries(): FormArray {
