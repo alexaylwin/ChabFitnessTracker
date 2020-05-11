@@ -10,28 +10,18 @@
 
           <mat-cell *matCellDef="let element" [formGroup]="element">
 
-            <mat-form-field *ngIf="ft.autocompleteEnabled" floatLabel="never">
+            <mat-form-field floatLabel="never">
               <mat-label>Type</mat-label>
               <!-- TODO: Make this autocomplete filter properly (see AngularMaterial docs)-->
               <input matInput 
               type="text" 
               formControlName="type"
-              [matAutocomplete]="typeAuto"
-              >
+              [matAutocomplete]="typeAuto">
               <mat-autocomplete #typeAuto="matAutocomplete">
                 <mat-option *ngFor="let exercise of exerciseList" [value]="exercise.type">
                   <span>{{exercise.type}}</span>
                 </mat-option>
               </mat-autocomplete>
-            </mat-form-field>
-
-            <mat-form-field *ngIf="!ft.autocompleteEnabled" floatLabel="never">
-              <mat-label>Type</mat-label>
-              <mat-select formControlName="type">
-                <mat-option *ngFor="let exercise of exerciseList" [value]="exercise.type">
-                  <span>{{exercise.type}}</span>
-                </mat-option>
-              </mat-select>
             </mat-form-field>
 
           </mat-cell>
