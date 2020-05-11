@@ -1,7 +1,7 @@
 
 <div class="daily-workout" width="100%">
   <h2> Workout for today, {{ today }}<sup>th</sup>, 2020 </h2>
-  <form [formGroup]="exercisesForm">
+  <form class="workout-form" [formGroup]="exercisesForm"  (ngSubmit)="onSaveWorkout()">
     <ng-container formArrayName="exerciseEntries">
       <mat-table #tableInstance [dataSource]="exerciseEntries.controls">
 
@@ -12,6 +12,7 @@
 
             <mat-form-field floatLabel="never">
               <mat-label>Type</mat-label>
+              <!-- TODO: Make this autocomplete filter properly (see AngularMaterial docs)-->
               <input matInput 
               type="text" 
               formControlName="type"
@@ -33,8 +34,10 @@
           <mat-header-cell *matHeaderCellDef>Count</mat-header-cell>
           <mat-cell *matCellDef="let element" [formGroup]="element">
             <mat-form-field floatLabel="never">
+              <!-- TODO: Make this dynamic based on the type element. How? -->
+              <span matSuffix class="units mat-caption">reps</span>
               <mat-label>Count</mat-label>
-              <input matInput type="number" formControlName="count">
+              <input matInput type="number" pattern="\d*" formControlName="count">
             </mat-form-field>
           </mat-cell>
           <mat-footer-cell *matFooterCellDef></mat-footer-cell>
@@ -56,8 +59,8 @@
       </mat-table>
     </ng-container>
     <button id="addExercise" (click)="onAddExercise()" mat-raised-button color="accent">Add Exercise</button>
+    <div class="center-content">
+      <button type="submit" (click)="onSaveWorkout()" mat-raised-button color="primary">Save Workout</button>
+    </div>
 </form>
-<div class="center-content">
-  <button (click)="onSaveWorkout()" mat-raised-button color="primary">Save Workout</button>
-</div>
 </div>
