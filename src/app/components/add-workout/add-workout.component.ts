@@ -43,6 +43,7 @@ export class AddWorkoutComponent implements OnInit {
       debounceTime(350)
     ).subscribe( (form) => {
       // TODO: we update every row when any value changes - could we make this smarter?
+      // see if we can access `element` for each field, that gives us the control group
       const newForm: Array<ExerciseRecord> = new Array<ExerciseRecord>();
       let newPoints = 0;
       form.exerciseEntries.forEach( (record: ExerciseRecord) => {
