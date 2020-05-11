@@ -9,5 +9,9 @@ export class FeatureToggleService {
     return false;
   }
 
+  get saveWorkoutEnabled(): boolean {
+    return false;
+  }
+
   constructor() { }
 }

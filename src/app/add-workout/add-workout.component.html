@@ -69,7 +69,7 @@
       </mat-table>
     </ng-container>
     <button id="addExercise" (click)="onAddExercise()" mat-raised-button color="accent">Add Exercise</button>
-    <div class="center-content">
+    <div class="center-content" *ngIf="ft.saveWorkoutEnabled">
       <button type="submit" (click)="onSaveWorkout()" mat-raised-button color="primary">Save Workout</button>
     </div>
 </form>
