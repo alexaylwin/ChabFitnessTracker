@@ -1,0 +1,5 @@
+alexaylwin@bacms.ca
+cd chab-fitness
+mput *
+close
+quit
