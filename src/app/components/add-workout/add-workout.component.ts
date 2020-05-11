@@ -4,6 +4,8 @@ import { FormBuilder, FormArray, FormControl } from '@angular/forms';
 import { MatTable } from '@angular/material/table';
 import { debounce, debounceTime } from 'rxjs/operators';
 import { FeatureToggleService } from '../../services/feature-toggle.service';
+import { StorageService } from 'src/app/services/storage.service';
+import { WorkoutRecord } from 'src/app/models/workout';
 
 @Component({
   selector: 'app-add-workout',
@@ -33,7 +35,7 @@ export class AddWorkoutComponent implements OnInit {
     ])
   });
 
-  constructor(private fb: FormBuilder, public ft: FeatureToggleService) { }
+  constructor(private fb: FormBuilder, public ft: FeatureToggleService, private ss: StorageService) { }
 
   ngOnInit(): void {
     const day = new Date();
@@ -63,6 +65,13 @@ export class AddWorkoutComponent implements OnInit {
   }
 
   onSaveWorkout() {
+    let exercises = new Array<ExerciseRecord>();
+    this.exercisesForm.value.exerciseEntries.forEach( exercise => {
+      exercises.push({type: exercise.type, points: exercise.points, count: exercise.count });
+    });
+    
+    this.ss.saveWorkout({exercises: exercises, date: new Date(), totalPoints: this.totalPoints});
+    
   }
 
   onRemoveRow(element: any) {

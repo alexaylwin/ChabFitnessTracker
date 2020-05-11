@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { WorkoutRecord } from '../models/workout';
-import { Recoverable } from 'repl';
 
 @Injectable({
   providedIn: 'root'

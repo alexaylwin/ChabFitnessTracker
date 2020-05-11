@@ -76,9 +76,9 @@
         <mat-footer-row *matFooterRowDef="displayedColumns"></mat-footer-row>
       </mat-table>
     </ng-container>
-    <button id="addExercise" (click)="onAddExercise()" mat-raised-button color="accent">Add Exercise</button>
+    <a id="addExercise" (click)="onAddExercise()" mat-raised-button color="accent">Add Exercise</a>
     <div class="center-content" *ngIf="ft.saveWorkoutEnabled">
-      <button type="submit" (click)="onSaveWorkout()" mat-raised-button color="primary">Save Workout</button>
+      <button type="submit" mat-raised-button color="primary">Save Workout</button>
     </div>
 </form>
 </div>
