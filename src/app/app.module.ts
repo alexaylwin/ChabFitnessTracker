@@ -5,8 +5,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AddWorkoutComponent } from './add-workout/add-workout.component';
-import { HeaderComponent } from './header/header.component';
+import { AddWorkoutComponent } from './components/add-workout/add-workout.component';
+import { HeaderComponent } from './components/header/header.component';
 
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatGridListModule} from '@angular/material/grid-list';

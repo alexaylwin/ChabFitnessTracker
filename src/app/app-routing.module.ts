@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AddWorkoutComponent } from './add-workout/add-workout.component';
+import { AddWorkoutComponent } from './components/add-workout/add-workout.component';
 
 
 const routes: Routes = [
