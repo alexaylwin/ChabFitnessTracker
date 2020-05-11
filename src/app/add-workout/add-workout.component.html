@@ -47,7 +47,7 @@
               <!-- TODO: Make this dynamic based on the type element. How? -->
               <span matSuffix class="units mat-caption">reps</span>
               <mat-label>Count</mat-label>
-              <input matInput type="number" pattern="\d*" formControlName="count">
+              <input matInput type="number" pattern="\d+(\.\d)?" formControlName="count">
             </mat-form-field>
           </mat-cell>
           <mat-footer-cell *matFooterCellDef></mat-footer-cell>
