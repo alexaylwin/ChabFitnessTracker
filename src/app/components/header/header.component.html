@@ -2,6 +2,28 @@
   <mat-toolbar color="primary">
     <mat-toolbar-row>
       <span>CHAB Workout Tracker</span>
+      <span class="fill-space"></span>
+      <button mat-icon-button [matMenuTriggerFor]="menu">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <mat-menu #menu="matMenu">
+        <a [routerLink]="'/add-workout'" mat-menu-item>
+          <span><i class="material-icons align-middle">add</i>
+            Add Workout</span>
+        </a>
+        <a [routerLink]="'/view-workouts'" mat-menu-item>
+          <span><i class="material-icons align-middle">show_chart</i>
+          View Workouts</span>
+          </a>
+        <button mat-menu-item>
+          <span><i class="material-icons align-middle">help</i>
+          About & FAQ</span>
+        </button>
+        <a target="_blank" href="http://github.com/alexaylwin/ChabFitnessTracker" mat-menu-item>
+          <span><i class="material-icons align-middle">code</i>
+          Source</span>
+          </a>
+      </mat-menu>
     </mat-toolbar-row>
   </mat-toolbar>
 </header>
