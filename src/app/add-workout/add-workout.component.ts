@@ -13,7 +13,7 @@ import { FeatureToggleService } from '../services/feature-toggle.service';
 export class AddWorkoutComponent implements OnInit {
 
   today: string = '';
-  totalPoints: number = 99;
+  totalPoints: number = 0;
   exerciseList: Array<Exercise> = EXERCISE_LIST;
 
   @ViewChild(MatTable)
