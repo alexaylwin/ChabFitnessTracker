@@ -3,6 +3,7 @@ import { Exercise, EXERCISE_LIST, ExerciseRecord } from '../models/exercise';
 import { FormBuilder, FormArray, FormControl } from '@angular/forms';
 import { MatTable } from '@angular/material/table';
 import { debounce, debounceTime } from 'rxjs/operators';
+import { FeatureToggleService } from '../services/feature-toggle.service';
 
 @Component({
   selector: 'app-add-workout',
@@ -32,7 +33,7 @@ export class AddWorkoutComponent implements OnInit {
     ])
   });
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, public ft: FeatureToggleService) { }
 
   ngOnInit(): void {
     const day = new Date();
