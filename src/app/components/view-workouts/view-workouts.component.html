@@ -8,6 +8,7 @@
 
     </mat-tab>
     <mat-tab class="view-week-tab" label="May 25-31">
+      
       <mat-card *ngFor="let workout of workouts" class="view-workout-card">
         <mat-card-header>
           <mat-card-title>{{workout.date}}</mat-card-title>
@@ -17,8 +18,15 @@
             <span class="exercise">{{exercise.type}}</span>
           </div>
         </mat-card-content>
-      </mat-card> 
-    </mat-tab>        
+        <mat-card-actions *ngIf="ft.manageWorkoutsEnabled">
+          <button mat-raised-button color="accent">Edit Workout</button>
+          <button mat-raised-button color="warn">Delete Workout</button>
+        </mat-card-actions>
+      </mat-card>
+      <div class="weekly-point-total">
+        Weekly Points: 976
+      </div>
+    </mat-tab>
   </mat-tab-group>
 
 
