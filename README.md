@@ -1,27 +1,33 @@
 # ChabFitnessTracker
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.4.
+## About
+This is a fitness tracker that uses a formula from a company workout competition. It is best used on mobile.
 
-## Development server
+Built with Angular 9 and Material.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Running
 
-## Code scaffolding
+`git clone https://github.com/alexaylwin/ChabFitnessTracker.git`
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+`cd ChabFitnessTracker`
 
-## Build
+`npm i`
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+`ng serve --open`
 
-## Running unit tests
+## Hosting
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+It can be hosted on any webserver, to build for production:
 
-## Running end-to-end tests
+`npm run build:prod`
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Expected path is `/chab-fitness/`
 
-## Further help
+## Adding New Exercises
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Exercises can be extended/modified in the [exercise model](src/app/models/exercise.ts)
+
+## Technical Notes
+
+- Workouts are 'saved' in local storage - if the user wipes local storage, workouts will be lost
+- There is no server-side component or syncing
