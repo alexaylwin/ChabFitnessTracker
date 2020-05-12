@@ -5,6 +5,12 @@ export interface Exercise {
   multiplier: number;
 }
 
+export interface ExerciseRecord {
+  count: number;
+  type: string;
+  points: number;
+}
+
 export enum UNITS {
   'min',
   'sec',
@@ -23,12 +29,6 @@ export const EXERCISE_LIST: Array<Exercise> = [
   { type: 'Skipping (sec)', id: 8, unit: UNITS.sec, multiplier: 0.056 },
   { type: 'General (min)', id: 9, unit: UNITS.min, multiplier: 0.833 },
 ];
-
-export interface ExerciseRecord {
-  count: number;
-  type: string;
-  points: number;
-}
 
 export function CalculateExercisePoints(exercise: Exercise, count: number): number {
   return (exercise === undefined ? 0 : Math.floor(count * exercise.multiplier));

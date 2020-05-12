@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AddWorkoutComponent } from './components/add-workout/add-workout.component';
 import { HeaderComponent } from './components/header/header.component';
+import { ViewWorkoutsComponent } from './components/view-workouts/view-workouts.component';
 
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatGridListModule} from '@angular/material/grid-list';
@@ -16,12 +17,16 @@ import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import {MatButtonModule} from '@angular/material/button';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
     AppComponent,
     AddWorkoutComponent,
-    HeaderComponent
+    HeaderComponent,
+    ViewWorkoutsComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,7 +41,10 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
     MatInputModule,
     MatSelectModule,
     MatButtonModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    MatMenuModule,
+    MatDividerModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]
