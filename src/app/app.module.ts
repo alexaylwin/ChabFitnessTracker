@@ -19,6 +19,9 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatDividerModule} from '@angular/material/divider';
+import {MatDialogModule} from '@angular/material/dialog';
+
+import { HelpFaqDialogComponent } from './components/header/help-faq-dialog/help-faq-dialog.component';
 
 
 @NgModule({
@@ -26,7 +29,8 @@ import {MatDividerModule} from '@angular/material/divider';
     AppComponent,
     AddWorkoutComponent,
     HeaderComponent,
-    ViewWorkoutsComponent
+    ViewWorkoutsComponent,
+    HelpFaqDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +47,8 @@ import {MatDividerModule} from '@angular/material/divider';
     MatButtonModule,
     MatAutocompleteModule,
     MatMenuModule,
-    MatDividerModule
+    MatDividerModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

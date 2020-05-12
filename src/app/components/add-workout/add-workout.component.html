@@ -78,7 +78,7 @@
     </ng-container>
     <a id="addExercise" (click)="onAddExercise()" mat-raised-button color="accent">Add Exercise</a>
     <div class="center-content" *ngIf="ft.saveWorkoutEnabled">
-      <button type="submit" mat-raised-button color="primary">Save Workout</button>
+      <button type="submit" mat-raised-button color="primary">Save Workout</button><button mat-icon-button (click)="onSaveHelpClick()"><i class="material-icons">help</i></button>
     </div>
 </form>
 </div>
