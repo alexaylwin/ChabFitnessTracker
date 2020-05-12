@@ -1,9 +1,26 @@
 <div class="view-workouts">
-  <div *ngFor="let workout of workouts" class="workout-display">
-    <span class="date">{{workout.date}}</span>
-    <div *ngFor="let exercise of workout.exercises">
-      <span class="exercise">{{exercise.type}}</span>
-    </div>
-    <mat-divider></mat-divider>
-  </div>
+
+  <mat-tab-group animationDuration="300ms">
+    <mat-tab label="May 11-17">
+
+    </mat-tab>
+    <mat-tab label="May 18-24">
+
+    </mat-tab>
+    <mat-tab class="view-week-tab" label="May 25-31">
+      <mat-card *ngFor="let workout of workouts" class="view-workout-card">
+        <mat-card-header>
+          <mat-card-title>{{workout.date}}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <div *ngFor="let exercise of workout.exercises">
+            <span class="exercise">{{exercise.type}}</span>
+          </div>
+        </mat-card-content>
+      </mat-card> 
+    </mat-tab>        
+  </mat-tab-group>
+
+
+
 </div>

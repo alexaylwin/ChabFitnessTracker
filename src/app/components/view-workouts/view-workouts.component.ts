@@ -10,10 +10,10 @@ import { WorkoutRecord } from 'src/app/models/workout';
 export class ViewWorkoutsComponent implements OnInit {
 
   workouts: Array<WorkoutRecord>;
-  constructor(private ss: StorageService) { }
+  constructor(private storage: StorageService) { }
 
   ngOnInit(): void {
-    this.workouts = this.ss.getWorkouts();
+    this.workouts = this.storage.getWorkouts();
   }
 
 }
