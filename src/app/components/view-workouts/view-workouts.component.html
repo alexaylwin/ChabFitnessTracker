@@ -1,15 +1,10 @@
 <div class="view-workouts">
-
   <mat-tab-group animationDuration="300ms">
-    <mat-tab label="May 11-17">
+    <mat-tab *ngFor="let wbw of sortedWorkouts">
 
-    </mat-tab>
-    <mat-tab label="May 18-24">
+      <ng-template mat-tab-label>{{wbw.weekLabel}}</ng-template>
 
-    </mat-tab>
-    <mat-tab class="view-week-tab" label="May 25-31">
-      
-      <mat-card *ngFor="let workout of workouts" class="view-workout-card">
+      <mat-card *ngFor="let workout of wbw.workouts" class="view-workout-card">
         <mat-card-header>
           <mat-card-title>{{workout.date}}</mat-card-title>
         </mat-card-header>
@@ -28,7 +23,7 @@
             <ng-container matColumnDef="points">
               <mat-header-cell *matHeaderCellDef>Points</mat-header-cell>
               <mat-cell *matCellDef="let exercise">{{exercise.points}}</mat-cell>
-              <mat-footer-cell *matFooterCellDef class="font-bold">123</mat-footer-cell>
+              <mat-footer-cell *matFooterCellDef class="font-bold">{{workout.totalPoints}}</mat-footer-cell>
             </ng-container>
 
             <mat-header-row *matHeaderRowDef="['type', 'count', 'points']"></mat-header-row>
@@ -43,11 +38,9 @@
         </mat-card-actions>
       </mat-card>
       <div class="weekly-point-total">
-        Weekly Points: 976
-      </div>
+        Weekly Points: {{wbw.totalPoints}}
+      </div>      
     </mat-tab>
+
   </mat-tab-group>
-
-
-
 </div>
