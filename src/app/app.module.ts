@@ -21,16 +21,12 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatDialogModule} from '@angular/material/dialog';
 
-import { HelpFaqDialogComponent } from './components/header/help-faq-dialog/help-faq-dialog.component';
-
-
 @NgModule({
   declarations: [
     AppComponent,
     AddWorkoutComponent,
     HeaderComponent,
     ViewWorkoutsComponent,
-    HelpFaqDialogComponent
   ],
   imports: [
     BrowserModule,

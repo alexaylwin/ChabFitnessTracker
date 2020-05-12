@@ -15,7 +15,7 @@
           <span><i class="material-icons align-middle">show_chart</i>
           View Workouts</span>
           </a>
-        <button mat-menu-item>
+        <button mat-menu-item (click)="onHelpClick()">
           <span><i class="material-icons align-middle">help</i>
           About & FAQ</span>
         </button>
@@ -27,3 +27,36 @@
     </mat-toolbar-row>
   </mat-toolbar>
 </header>
+
+<ng-template #helpDialogTemplate>
+  <h1 mat-dialog-title>What is this app?</h1>
+<div mat-dialog-content class="mat-dialog-content">
+  <h2> Getting Started </h2>
+  <p>
+    The 'CHAB Fitness Tracker' is set up to help you calculate your daily point totals, or save and track your workouts by week. 
+  </p>
+  <p>To get started, just enter your workout on the 'Add Workout' page. You can use this as a calculator for reporting a daily score. 
+  </p>
+  <h2> Saving and Viewing Workouts </h2>
+  <p>
+    If you want to save workouts, please see the help icon beside the save button to see how saving works. After you've begun saving workouts, 
+    you can see them on the 'View Workouts' page. These will be reported by week (Mon -> Sun) and will show you weekly point totals.
+  </p>
+  <h2> Point Calculations </h2>
+  <p>
+    Points are calculated fractionally and rounded down. The simple calculation is: <br />
+    <span class='font-code'>floor((points / (count per points)) * count)</span>
+    <br />
+    So, for example, walking 1.5km: <br />
+    <span class='font-code'>floor((10 / 1) * 1.5) = 15 points</span>
+    <br />
+    Or, doing 7 pull-ups: <br/>
+    <span class='font-code'>floor((4 / 5) * 7) = 5 points</span>
+  </p>
+</div>
+
+<!-- TODO: no idea why the directives aren't being processed in the dialog -->
+<div mat-dialog-actions class="mat-dialog-actions">
+  <button class="mat-raised-button" (click)="onDismissClick()">Dismiss</button>
+</div>
+</ng-template>
