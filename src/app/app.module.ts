@@ -20,6 +20,8 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatCardModule} from '@angular/material/card'
 
 @NgModule({
   declarations: [
@@ -44,7 +46,9 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatAutocompleteModule,
     MatMenuModule,
     MatDividerModule,
-    MatDialogModule
+    MatDialogModule,
+    MatTabsModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
