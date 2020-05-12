@@ -14,9 +14,28 @@
           <mat-card-title>{{workout.date}}</mat-card-title>
         </mat-card-header>
         <mat-card-content>
-          <div *ngFor="let exercise of workout.exercises">
-            <span class="exercise">{{exercise.type}}</span>
-          </div>
+          <mat-table [dataSource]="workout.exercises">
+            <ng-container matColumnDef="type">
+              <mat-header-cell *matHeaderCellDef>Type</mat-header-cell>
+              <mat-cell *matCellDef="let exercise">{{exercise.type}}</mat-cell>
+              <mat-footer-cell *matFooterCellDef class="font-bold">Total</mat-footer-cell>
+            </ng-container>
+            <ng-container matColumnDef="count">
+              <mat-header-cell *matHeaderCellDef>Count</mat-header-cell>
+              <mat-cell *matCellDef="let exercise">{{exercise.count}}</mat-cell>
+              <mat-footer-cell *matFooterCellDef ></mat-footer-cell>
+            </ng-container>
+            <ng-container matColumnDef="points">
+              <mat-header-cell *matHeaderCellDef>Points</mat-header-cell>
+              <mat-cell *matCellDef="let exercise">{{exercise.points}}</mat-cell>
+              <mat-footer-cell *matFooterCellDef class="font-bold">123</mat-footer-cell>
+            </ng-container>
+
+            <mat-header-row *matHeaderRowDef="['type', 'count', 'points']"></mat-header-row>
+            <mat-row *matRowDef="let row; columns:['type', 'count', 'points'] "></mat-row>
+            <mat-footer-row *matFooterRowDef="['type', 'count', 'points'] "></mat-footer-row>
+            
+          </mat-table>
         </mat-card-content>
         <mat-card-actions *ngIf="ft.manageWorkoutsEnabled">
           <button mat-raised-button color="accent">Edit Workout</button>
