@@ -11,7 +11,7 @@
           <span><i class="material-icons align-middle">add</i>
             Add Workout</span>
         </a>
-        <a [routerLink]="'/view-workouts'" mat-menu-item>
+        <a *ngIf="ft.saveWorkoutEnabled" [routerLink]="'/view-workouts'" mat-menu-item>
           <span><i class="material-icons align-middle">show_chart</i>
           View Workouts</span>
           </a>

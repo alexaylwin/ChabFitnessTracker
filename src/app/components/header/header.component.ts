@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild, TemplateRef } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { FeatureToggleService } from 'src/app/services/feature-toggle.service';
 
 @Component({
   selector: 'app-header',
@@ -11,7 +12,7 @@ export class HeaderComponent implements OnInit {
   @ViewChild('helpDialogTemplate') helpDialogTemplate: TemplateRef<any>;
   helpDialogRef: MatDialogRef<any, any>;
 
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog, public ft: FeatureToggleService) { }
 
   ngOnInit(): void {
   }
