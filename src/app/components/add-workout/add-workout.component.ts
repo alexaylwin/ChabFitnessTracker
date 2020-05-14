@@ -23,7 +23,7 @@ export class AddWorkoutComponent implements OnInit {
   tableInstance: MatTable<FormControl>;
 
   @ViewChild('saveHelpDialogTemplate') saveHelpDialogTemplate: TemplateRef<any>;
-  saveHelpDialogRef: MatDialogRef<any, any>; 
+  saveHelpDialogRef: MatDialogRef<any, any>;
 
   @ViewChild('saveCompleteDialogTemplate') saveCompleteDialogTemplate: TemplateRef<any>;
   saveCompleteDialogRef: MatDialogRef<any, any>; 
