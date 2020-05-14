@@ -30,7 +30,7 @@ export class AddWorkoutComponent implements OnInit {
 
   displayedColumns = ['type', 'count', 'points', 'remove'];
 
-  private exerciseEntryControls = {
+  private entryControlRow = {
     type: [''],
     count: [''],
     points: ['']
@@ -38,7 +38,7 @@ export class AddWorkoutComponent implements OnInit {
 
   public exercisesForm = this.fb.group({
     exerciseEntries: this.fb.array([
-      this.fb.group(this.exerciseEntryControls)
+      this.fb.group(this.entryControlRow)
     ])
   });
 
@@ -67,7 +67,7 @@ export class AddWorkoutComponent implements OnInit {
 
   @HostListener('document:keydown.a')
   onAddExercise(): void {
-    this.exerciseEntries.push(this.fb.group(this.exerciseEntryControls));
+    this.exerciseEntries.push(this.fb.group(this.entryControlRow));
     this.tableInstance.renderRows();
   }
 
@@ -78,6 +78,11 @@ export class AddWorkoutComponent implements OnInit {
     });
 
     this.storage.saveWorkout({exercises: exercises, date: new Date(), totalPoints: this.totalPoints});
+    this.exercisesForm.reset();
+    this.exercisesForm.setControl('exerciseEntries', this.fb.array([
+      this.fb.group(this.entryControlRow)
+    ]));
+    this.tableInstance.renderRows();
     this.saveCompleteDialogRef = this.dialog.open(this.saveCompleteDialogTemplate);
 
   }
