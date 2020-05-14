@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, HostListener} from '@angular/core';
+import { Component, OnInit, ViewChild, HostListener, TemplateRef} from '@angular/core';
 import { Exercise, EXERCISE_LIST, ExerciseRecord, GetExerciseByType, CalculateExercisePoints } from '../../models/exercise';
 import { FormBuilder, FormArray, FormControl } from '@angular/forms';
 import { MatTable } from '@angular/material/table';
@@ -21,6 +21,12 @@ export class AddWorkoutComponent implements OnInit {
 
   @ViewChild(MatTable)
   tableInstance: MatTable<FormControl>;
+
+  @ViewChild('saveHelpDialogTemplate') saveHelpDialogTemplate: TemplateRef<any>;
+  saveHelpDialogRef: MatDialogRef<any, any>; 
+
+  @ViewChild('saveCompleteDialogTemplate') saveCompleteDialogTemplate: TemplateRef<any>;
+  saveCompleteDialogRef: MatDialogRef<any, any>; 
 
   displayedColumns = ['type', 'count', 'points', 'remove'];
 
@@ -72,6 +78,7 @@ export class AddWorkoutComponent implements OnInit {
     });
 
     this.storage.saveWorkout({exercises: exercises, date: new Date(), totalPoints: this.totalPoints});
+    this.saveCompleteDialogRef = this.dialog.open(this.saveCompleteDialogTemplate);
 
   }
 
@@ -82,23 +89,18 @@ export class AddWorkoutComponent implements OnInit {
   }
 
   onSaveHelpClick(): void {
-    this.dialog.open(SaveHelpDialogComponent);
+    this.saveHelpDialogRef = this.dialog.open(this.saveHelpDialogTemplate);
+  }
+
+  onDismissHelp(): void {
+    this.saveHelpDialogRef.close();
+  }
+
+  onDismissSaveComplete(): void {
+    this.saveCompleteDialogRef.close();
   }
 
   get exerciseEntries(): FormArray {
     return this.exercisesForm.get('exerciseEntries') as FormArray;
   }
-}
-
-@Component({
-  selector: 'app-save-help-dialog',
-  templateUrl: 'save-help-dialog.component.html',
-})
-export class SaveHelpDialogComponent {
-  constructor(public dialogRef: MatDialogRef<SaveHelpDialogComponent>) {}
-
-  onDismissClick(): void {
-    this.dialogRef.close();
-  }
-
 }

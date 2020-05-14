@@ -14,7 +14,7 @@ export class FeatureToggleService {
   }
 
   get manageWorkoutsEnabled(): boolean {
-    return true;
+    return false;
   }
 
   constructor() { }

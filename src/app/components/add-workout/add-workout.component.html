@@ -82,3 +82,42 @@
     </div>
 </form>
 </div>
+
+
+
+<ng-template #saveHelpDialogTemplate>
+  <h1 mat-dialog-title>How does 'Save' work?</h1>
+  <div mat-dialog-content class="mat-dialog-content">
+    <p>
+      The tracker uses your browser's <span class="font-bold">local storage</span> to save your workouts. In order to use
+      'Save', ensure that you:
+    </p>
+    <ol>
+      <li>Use the same device, and same browser on that device</li>
+      <li>Do not use 'private' or 'incoginto' mode</li>
+      <li>Do not clear your history or cookies</li>
+    </ol>
+    <p>
+      If you do any of the above, your previous workout history will be lost! This app does not communicate with the
+      'cloud' or any server to save/track data.
+    </p>
+    </div>
+
+    <!-- TODO: no idea why the directives aren't being processed in the dialog -->
+    <div mat-dialog-actions class="mat-dialog-actions">
+      <button class="mat-raised-button" (click)="onDismissHelp()">Dismiss</button>
+    </div>
+</ng-template>
+
+<ng-template #saveCompleteDialogTemplate>
+  <h1 mat-dialog-title>Workout Saved!</h1>
+  <div mat-dialog-content class="mat-dialog-content align-middle">
+    <p>
+      <i class="material-icons">sports_cricket</i> Great work! <i class="material-icons">sports_soccer</i>
+    </p>
+  </div>
+    <div mat-dialog-actions class="mat-dialog-actions" align="center">
+      <button class="mat-raised-button" (click)="onDismissSaveComplete()">Dismiss</button>
+    </div>
+</ng-template>
+
