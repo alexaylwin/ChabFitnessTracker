@@ -17,5 +17,9 @@ export class FeatureToggleService {
     return false;
   }
 
+  get downloadWorkoutsEnabled(): boolean {
+    return true;
+  }
+
   constructor() { }
 }
