@@ -28,6 +28,7 @@ export class HeaderComponent implements OnInit {
     const link = document.createElement('a');
     link.href = href;
     link.download = 'workouts.json';
+    link.target = '_blank';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
