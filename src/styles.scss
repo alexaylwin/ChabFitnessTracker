@@ -51,11 +51,14 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   }
 
   .view-workout-card {
-    margin: 8px
-    }
+    margin: 8px;
+  }
 
   .weekly-point-total {
+    padding: 12px;
     color: black;
-     font-size: 24px
+    font-size: 24px;
+    font-weight: 300;
+    background-color: white;
   }
 }
